@@ -117,16 +117,29 @@ bot.dialog('/', [
                 response = JSON.parse(response);
                 if(response.topScoringIntent.intent === 'expensive-price') {
                  session.sendTyping();
-                 session.send("Ok! Maybe this is more interesting for you.");
+                 session.send("Oh, we sorry this still expensive for you.. maybe this will more interesting for you..");
+                 session.sendTyping();
+                 session.send('We have a experimental package only for you, we call it "telemetrics".');
+                 session.sendTyping();
+                 session.send("If you buy one of these gadgets we will low the price in a 75%!!");
+                 session.send()
                 var cards = getCardsAttachments2();
                  var reply = new builder.Message(session)
                     .attachmentLayout(builder.AttachmentLayout.carousel)
                     .attachments(cards);
                 session.send(reply);
-
+                session.sendTyping();
+                builder.Prompts.choice(session, "What do you think?", ["I want it", "HELL YEAH, GO ON IT"]);
 
                 }
             })
+        } else next();
+    },
+    function (session, results, next){
+        if(results.response) {
+            session.sendTyping();
+            session.send("Ok, I will process this to one of our humans and he will contact you as soon of posible.");
+            return next();
         }
     }
 ]);
