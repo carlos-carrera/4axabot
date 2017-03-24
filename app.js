@@ -133,8 +133,7 @@ bot.dialog('/', [
                 session.send(reply);
                 session.sendTyping();
                 builder.Prompts.choice(session, "What do you think?", ["I want it", "HELL YEAH, GO ON IT", "I don't want it"]);
-
-                }
+                } else next();
             })
         } else next();
     },
@@ -172,46 +171,35 @@ function getCardsAttachments(session) {
     return [
         new builder.HeroCard(session)
             .title('Home insurance')
-            .subtitle('Offload the heavy lifting of data center management')
-            .text('Store and help protect your data. Get durable, highly available data storage across the globe and pay only for what you use.')
+            .subtitle('')
+            .text('From 150€')
             .images([
-                builder.CardImage.create(session, 'https://docs.microsoft.com/en-us/azure/storage/media/storage-introduction/storage-concepts.png')
+                builder.CardImage.create(session, 'https://www.axani.co.uk/Images/general/axa-home-estate-red-brick-house.jpg')
             ])
             .buttons([
-                builder.CardAction.openUrl(session, 'https://azure.microsoft.com/en-us/services/storage/', 'Learn More')
-            ]),
-
-        new builder.ThumbnailCard(session)
-            .title('DocumentDB')
-            .subtitle('Blazing fast, planet-scale NoSQL')
-            .text('NoSQL service for highly available, globally distributed apps—take full advantage of SQL and JavaScript over document and key-value data without the hassles of on-premises or virtual machine-based cloud database options.')
-            .images([
-                builder.CardImage.create(session, 'https://docs.microsoft.com/en-us/azure/documentdb/media/documentdb-introduction/json-database-resources1.png')
-            ])
-            .buttons([
-                builder.CardAction.openUrl(session, 'https://azure.microsoft.com/en-us/services/documentdb/', 'Learn More')
+                builder.CardAction.openUrl(session, 'http://www.axa.co.uk/insurance/personal/home/', 'Learn More')
             ]),
 
         new builder.HeroCard(session)
-            .title('Azure Functions')
-            .subtitle('Process events with a serverless code architecture')
-            .text('An event-based serverless compute experience to accelerate your development. It can scale based on demand and you pay only for the resources you consume.')
+            .title('Life insurance')
+            .subtitle('')
+            .text('From 300€')
             .images([
-                builder.CardImage.create(session, 'https://azurecomcdn.azureedge.net/cvt-5daae9212bb433ad0510fbfbff44121ac7c759adc284d7a43d60dbbf2358a07a/images/page/services/functions/01-develop.png')
+                builder.CardImage.create(session, 'http://6iee.com/data/uploads/21/422976.jpg')
             ])
             .buttons([
-                builder.CardAction.openUrl(session, 'https://azure.microsoft.com/en-us/services/functions/', 'Learn More')
+                builder.CardAction.openUrl(session, 'https://us.axa.com/about-axa/life-insurance.html', 'Learn More')
             ]),
 
-        new builder.ThumbnailCard(session)
-            .title('Cognitive Services')
-            .subtitle('Build powerful intelligence into your applications to enable natural and contextual interactions')
-            .text('Enable natural and contextual interaction with tools that augment users\' experiences using the power of machine-based intelligence. Tap into an ever-growing collection of powerful artificial intelligence algorithms for vision, speech, language, and knowledge.')
+        new builder.HeroCard(session)
+            .title('Travel insurance')
+            .subtitle('')
+            .text('From 230€')
             .images([
-                builder.CardImage.create(session, 'https://azurecomcdn.azureedge.net/cvt-68b530dac63f0ccae8466a2610289af04bdc67ee0bfbc2d5e526b8efd10af05a/images/page/services/cognitive-services/cognitive-services.png')
+                builder.CardImage.create(session, 'http://www.axa.co.uk/uploadedImages/Content/Insurance_v2/Personal_v2/Travel_Insurance_v2/axa-travel-insurance.jpg')
             ])
             .buttons([
-                builder.CardAction.openUrl(session, 'https://azure.microsoft.com/en-us/services/cognitive-services/', 'Learn More')
+                builder.CardAction.openUrl(session, 'http://www.axa.co.uk/insurance/personal/travel/', 'Learn More')
             ])
     ];
 }
