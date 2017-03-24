@@ -44,7 +44,7 @@ var msg;
 bot.dialog('/', [
     function (session) {
         session.sendTyping();
-        session.send('Hi John, thanks for joining the conversation!');
+        session.send('Hi Robert, thanks for joining the conversation!');
         builder.Prompts.choice(session, "How are you doing? :)", [":-)",":-("]);
     },
     function (session, results, next) {
