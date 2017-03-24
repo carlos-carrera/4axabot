@@ -129,7 +129,7 @@ bot.dialog('/', [
                     .attachments(cards);
                 session.send(reply);
                 session.sendTyping();
-                builder.Prompts.choice(session, "What do you think?", ["I want it", "HELL YEAH, GO ON IT"]);
+                builder.Prompts.choice(session, "What do you think?", ["I want it", "HELL YEAH, GO ON IT", "I don't want it"]);
 
                 }
             })
