@@ -65,11 +65,13 @@ bot.dialog('/', [
                 new builder.HeroCard(session)
                     .title("Your policy")
                     .subtitle("")
-                    .text("ID: <b>1234</b> <br> Date: <b>2017-04-02</b> ")
+                    .text("Policy ID: 12345")
                     .images([
-                        builder.CardImage.create(session, "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Seattlenighttimequeenanne.jpg/320px-Seattlenighttimequeenanne.jpg")
+                        builder.CardImage.create(session, "https://s-media-cache-ak0.pinimg.com/originals/d5/2c/dd/d52cdda9ca6ef7a8fd2108de61c115e0.jpg")
                     ])
-                    .tap(builder.CardAction.openUrl(session, "https://en.wikipedia.org/wiki/Space_Needle"))
+                    .buttons([
+                    builder.CardAction.openUrl(session, 'https://someAXaURL.com/blabladetails', 'More details')
+            ]),
             ]);
             session.sendTyping();
             session.send(msg);
@@ -84,6 +86,7 @@ bot.dialog('/', [
             if(results.response.index === 0) {
                 session.sendTyping();
                 session.send("That\'s great, at AXA, clients come first, because of that we have new offers just for you.");
+                return next();
             } else {
                 builder.Prompts.choice(session, "We want to know what is the problem with the current policy?", ["Price is high", "Low coverage", "Others"]);
                 //session.send("In Axa clients come first, thats why we want to improve your current offer, adding some products to your package.")
@@ -91,8 +94,8 @@ bot.dialog('/', [
         } else next();
     },
     function (session, results, next) {
-        if(results.response){
-            if(results.response.index === 0) {
+        //if(results.response){
+            //if(results.response.index === 0) {
                 session.sendTyping();
                 session.send("OK, we can do a 30% discount in your price if you buy these products! ");
                  var cards = getCardsAttachments();
@@ -102,8 +105,8 @@ bot.dialog('/', [
                 session.send(reply);
                 session.sendTyping();
                 builder.Prompts.text(session, "Do you like the offer?");
-            }
-        }
+            //}
+        //}
     },
     function (session, results, next) {
         if(results.response){
@@ -168,7 +171,7 @@ bot.dialog('/', [
 function getCardsAttachments(session) {
     return [
         new builder.HeroCard(session)
-            .title('')
+            .title('Home insurance')
             .subtitle('Offload the heavy lifting of data center management')
             .text('Store and help protect your data. Get durable, highly available data storage across the globe and pay only for what you use.')
             .images([
