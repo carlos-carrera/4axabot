@@ -44,7 +44,7 @@ var msg;
 bot.dialog('/', [
     function (session) {
         session.sendTyping();
-        session.send('Hi');
+        session.send('Hi, I’m Maria – your Personal AXA Insurance Assistant');
         builder.Prompts.choice(session, "How are you doing? :)", [":-)",":-("]);
     },
     function (session, results, next) {
@@ -58,7 +58,7 @@ bot.dialog('/', [
                 session.send('I\'m sorry to hear that. We can make your day better!');
             }
             session.sendTyping();
-            session.send('I wanted to talk to you because your policy is going to expire!');
+            session.send('I wanted to talk to you because your home policy is going to expire soon!');
              msg = new builder.Message(session)
             .textFormat(builder.TextFormat.xml)
             .attachments([
@@ -75,7 +75,7 @@ bot.dialog('/', [
             ]);
             session.sendTyping();
             session.send(msg);
-            builder.Prompts.choice(session, "I hope you are happy with us, do you want to renew?", ["Yes", "No"]);
+            builder.Prompts.choice(session, "I hope you are happy with us, would you want to renew with us?", ["Yes", "No"]);
         } else {
             next();
         }
@@ -85,10 +85,10 @@ bot.dialog('/', [
             console.log(results.response);
             if(results.response.index === 0) {
                 session.sendTyping();
-                session.send("That\'s great, at AXA, clients come first, because of that we have new offers just for you.");
+                session.send("That\'s great, at AXA, clients come first, because of that we, have new offers just for you.");
                 return next();
             } else {
-                builder.Prompts.choice(session, "We want to know what is the problem with the current policy?", ["Price is high", "Low coverage", "Others"]);
+                builder.Prompts.choice(session, "We want to know what is the problem with your current policy?", ["Price is high", "Low coverage", "Others"]);
                 //session.send("In Axa clients come first, thats why we want to improve your current offer, adding some products to your package.")
             }
         } else next();
@@ -97,14 +97,14 @@ bot.dialog('/', [
         //if(results.response){
             //if(results.response.index === 0) {
                 session.sendTyping();
-                session.send("OK, we can do a 30% discount in your price if you buy these products! ");
+                session.send("OK, here you have the new offers for you:");
                  var cards = getCardsAttachments();
                  var reply = new builder.Message(session)
                     .attachmentLayout(builder.AttachmentLayout.carousel)
                     .attachments(cards);
                 session.send(reply);
                 session.sendTyping();
-                builder.Prompts.text(session, "Do you like the offer?");
+                builder.Prompts.text(session,"If you have any comments, just say!");
             //}
         //}
     },
@@ -122,9 +122,9 @@ bot.dialog('/', [
                  session.sendTyping();
                  session.send("Oh, we sorry this still expensive for you.. maybe this will more interesting for you..");
                  session.sendTyping();
-                 session.send('We have a experimental package only for you, we call it "telemetrics".');
+                 session.send('We have a new offer just for selected customers, "Your home protected" package.');
                  session.sendTyping();
-                 session.send("If you buy one of these gadgets we will low the price in a 75%!!");
+                 session.send("If you get one of this smart protection devices you can get a discount");
                  session.send()
                 var cards = getCardsAttachments2();
                  var reply = new builder.Message(session)
@@ -132,7 +132,7 @@ bot.dialog('/', [
                     .attachments(cards);
                 session.send(reply);
                 session.sendTyping();
-                builder.Prompts.choice(session, "What do you think?", ["I want it", "HELL YEAH, GO ON IT", "I don't want it"]);
+                builder.Prompts.choice(session, "Would you be interested?", ["SHUT UP AND TAKE MY MONEY!", "I'm not interested"]);
                 } else next();
             })
         } else next();
