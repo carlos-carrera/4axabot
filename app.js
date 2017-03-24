@@ -44,7 +44,7 @@ var msg;
 bot.dialog('/', [
     function (session) {
         session.sendTyping();
-        session.send('Hi, I’m Maria – your Personal AXA Insurance Assistant');
+        session.send('Hi John, thanks for joining the conversation!');
         builder.Prompts.choice(session, "How are you doing? :)", [":-)",":-("]);
     },
     function (session, results, next) {
@@ -120,7 +120,7 @@ bot.dialog('/', [
                 response = JSON.parse(response);
                 if(response.topScoringIntent.intent === 'expensive-price') {
                  session.sendTyping();
-                 session.send("Oh, we sorry this still expensive for you.. maybe this will more interesting for you..");
+                 session.send("Oh, we sorry this still expensive for you.. maybe this will be more interesting for you..");
                  session.sendTyping();
                  session.send('We have a new offer just for selected customers, "Your home protected" package.');
                  session.sendTyping();
