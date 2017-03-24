@@ -140,7 +140,8 @@ bot.dialog('/', [
     function (session, results, next){
         if(results.response) {
             session.sendTyping();
-            session.send("Ok, I will process this to one of our humans and he will contact you as soon of posible.");
+            session.send("Great, I'll start doing the paperwork! One of out humans will contact you as soon of posible.");
+            session.send("Thanks for your trust")
             return next();
         }
     }
@@ -209,45 +210,34 @@ function getCardsAttachments2(session) {
         new builder.HeroCard(session)
             .title('Smoke detector')
             .subtitle('')
-            .text('From 60€')
+            .text('Invest 60€ and you will get a 10% discount')
             .images([
                 builder.CardImage.create(session, 'https://www.safety.com/wp-content/uploads/2012/12/smoke-detector-monitoring-system.jpg')
             ])
             .buttons([
                 builder.CardAction.openUrl(session, 'https://azure.microsoft.com/en-us/services/storage/', 'Learn More')
             ]),
-
-        new builder.ThumbnailCard(session)
-            .title('MyFox Camera')
-            .subtitle('')
-            .text('From 299€')
-            .images([
-                builder.CardImage.create(session, 'http://images.esellerpro.com/2451/I/282/302/7/u_10136798.jpg')
-            ])
-            .buttons([
-                builder.CardAction.openUrl(session, 'https://azure.microsoft.com/en-us/services/documentdb/', 'Learn More')
-            ]),
-
         new builder.HeroCard(session)
             .title('Alarm system')
             .subtitle('')
-            .text('From 130€')
+            .text('Invest 130€ you will get a 20% discount')
             .images([
                 builder.CardImage.create(session, 'http://www.innov8security.co.uk/wp-content/uploads/2014/03/no6_getanalarmsystem.jpg')
             ])
             .buttons([
                 builder.CardAction.openUrl(session, 'https://azure.microsoft.com/en-us/services/functions/', 'Learn More')
             ]),
-
-        new builder.ThumbnailCard(session)
-            .title('Cognitive Services')
-            .subtitle('Build powerful intelligence into your applications to enable natural and contextual interactions')
-            .text('Enable natural and contextual interaction with tools that augment users\' experiences using the power of machine-based intelligence. Tap into an ever-growing collection of powerful artificial intelligence algorithms for vision, speech, language, and knowledge.')
+        new builder.HeroCard(session)
+            .title('MyFox Camera')
+            .subtitle('')
+            .text('Invest 299€ you will get a 30% discount')
             .images([
-                builder.CardImage.create(session, 'https://azurecomcdn.azureedge.net/cvt-68b530dac63f0ccae8466a2610289af04bdc67ee0bfbc2d5e526b8efd10af05a/images/page/services/cognitive-services/cognitive-services.png')
+                builder.CardImage.create(session, 'http://images.esellerpro.com/2451/I/282/302/7/u_10136798.jpg')
             ])
             .buttons([
-                builder.CardAction.openUrl(session, 'https://azure.microsoft.com/en-us/services/cognitive-services/', 'Learn More')
+                builder.CardAction.openUrl(session, 'https://azure.microsoft.com/en-us/services/documentdb/', 'Learn More')
             ])
+
+        
     ];
 }
