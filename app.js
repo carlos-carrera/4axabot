@@ -67,7 +67,7 @@ bot.dialog('/', [
                     .subtitle("")
                     .text("Policy ID: 12345")
                     .images([
-                        builder.CardImage.create(session, "https://s-media-cache-ak0.pinimg.com/originals/d5/2c/dd/d52cdda9ca6ef7a8fd2108de61c115e0.jpg")
+                        builder.CardImage.create(session, "http://www.bcncatfilmcommission.com/sites/default/files/styles/fancybox/public/locations/3_3_0.jpg?itok=DG27OirT")
                     ])
                     .buttons([
                     builder.CardAction.openUrl(session, 'https://someAXaURL.com/blabladetails', 'More details')
@@ -170,36 +170,36 @@ bot.dialog('/', [
 function getCardsAttachments(session) {
     return [
         new builder.HeroCard(session)
-            .title('Home insurance')
+            .title('Basic home insurance')
             .subtitle('')
             .text('From 150€')
             .images([
-                builder.CardImage.create(session, 'https://www.axani.co.uk/Images/general/axa-home-estate-red-brick-house.jpg')
+                builder.CardImage.create(session, 'http://www.hotel-r.net/im/hotel/de/a-little-home-12.jpg')
             ])
             .buttons([
                 builder.CardAction.openUrl(session, 'http://www.axa.co.uk/insurance/personal/home/', 'Learn More')
             ]),
 
         new builder.HeroCard(session)
-            .title('Life insurance')
+            .title('Plus home insurance')
             .subtitle('')
             .text('From 300€')
             .images([
-                builder.CardImage.create(session, 'http://6iee.com/data/uploads/21/422976.jpg')
+                builder.CardImage.create(session, 'http://i.dailymail.co.uk/i/pix/2015/03/21/10/26DC0B2800000578-0-image-a-6_1426932744007.jpg')
             ])
             .buttons([
-                builder.CardAction.openUrl(session, 'https://us.axa.com/about-axa/life-insurance.html', 'Learn More')
+                builder.CardAction.openUrl(session, 'http://www.axa.co.uk/insurance/personal/home/', 'Learn More')
             ]),
 
         new builder.HeroCard(session)
-            .title('Travel insurance')
+            .title('Premium home insurnce')
             .subtitle('')
-            .text('From 230€')
+            .text('From 600€')
             .images([
-                builder.CardImage.create(session, 'http://www.axa.co.uk/uploadedImages/Content/Insurance_v2/Personal_v2/Travel_Insurance_v2/axa-travel-insurance.jpg')
+                builder.CardImage.create(session, 'http://www.thebighousemuseum.com/wp-content/uploads/2013/07/about-the-big-house-1.jpg')
             ])
             .buttons([
-                builder.CardAction.openUrl(session, 'http://www.axa.co.uk/insurance/personal/travel/', 'Learn More')
+                builder.CardAction.openUrl(session, 'http://www.axa.co.uk/insurance/personal/home/', 'Learn More')
             ])
     ];
 }
